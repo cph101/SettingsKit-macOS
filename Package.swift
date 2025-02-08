@@ -20,9 +20,6 @@ let package = Package(
             targets: ["SettingsKit"]
         )
     ],
-    dependencies: [
-        .package(url: "https://github.com/lukepistrol/SwiftLintPlugin", from: "0.2.2")
-    ],
     targets: [
         .target(
             name: "SettingsKit",
