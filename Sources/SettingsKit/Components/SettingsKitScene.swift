@@ -101,15 +101,20 @@ struct SettingsKitScene<Content>: Scene where Content: Scene {
             Text("")
         }
         .task {
-            let window = NSApplication.shared.keyWindow
-            window?.toolbarStyle = .unified
-            window?.toolbar?.displayMode = .iconOnly
+            beforeLoad()
         }
         .onAppear {
             if !settings.contains(where: { $0.id == model.selectedTab }), let id = settings.first?.id {
                 model.selectedTab = id
             }
         }
+    }
+
+    /// Style window
+    func beforeLoad() {
+        let window = NSApplication.shared.keyWindow
+        window?.toolbarStyle = .unified
+        window?.toolbar?.displayMode = .iconOnly
     }
 
     /// The view with the tab design.
