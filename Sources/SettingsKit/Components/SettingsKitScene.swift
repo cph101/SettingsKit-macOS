@@ -8,7 +8,7 @@
 import SwiftUI
 
 /// A structure adding the settings to another scene.
-public struct SettingsKitScene<Content>: Scene where Content: Scene {
+public class SettingsKitScene<Content>: Scene where Content: Scene {
 
     /// The shared instance of the ``SettingsModel``.
     @StateObject private var model = SettingsModel.shared
@@ -36,7 +36,7 @@ public struct SettingsKitScene<Content>: Scene where Content: Scene {
     }
 
     /// The scene.
-    var body: some Scene {
+    public var body: some Scene {
         Group {
             content
             Settings {
