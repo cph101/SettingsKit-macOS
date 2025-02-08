@@ -21,18 +21,10 @@ let package = Package(
         )
     ],
     targets: [
-        .target(
-            name: "SettingsKit",
-            plugins: [
-                .plugin(name: "SwiftLint", package: "SwiftLintPlugin")
-            ]
-        ),
+        .target(name: "SettingsKit"),
         .testTarget(
             name: "SettingsKitTests",
-            dependencies: ["SettingsKit"],
-            plugins: [
-                .plugin(name: "SwiftLint", package: "SwiftLintPlugin")
-            ]
+            dependencies: ["SettingsKit"]
         )
     ]
 )
