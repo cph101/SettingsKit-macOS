@@ -8,7 +8,7 @@
 import SwiftUI
 
 /// A structure adding the settings to another scene.
-public struct SettingsKitScene<Content>: Scene where Content: Scene {
+struct SettingsKitScene<Content>: Scene where Content: Scene {
 
     /// The shared instance of the ``SettingsModel``.
     @StateObject private var model = SettingsModel.shared
@@ -36,7 +36,7 @@ public struct SettingsKitScene<Content>: Scene where Content: Scene {
     }
 
     /// The scene.
-    public var body: some Scene {
+    var body: some Scene {
         Group {
             content
             Settings {
@@ -113,8 +113,16 @@ public struct SettingsKitScene<Content>: Scene where Content: Scene {
     /// Style window
     func beforeLoad() {
         let window = NSApplication.shared.keyWindow
-        window?.toolbarStyle = .unified
-        window?.toolbar?.displayMode = .iconOnly
+        
+        window?.toolbar!.isVisible = true;
+        window?.toolbar!.displayMode = .iconOnly
+        window?.toolbarStyle = .automatic;
+        
+        window?.titleVisibility = .visible;
+        window?.titlebarAppearsTransparent = true;
+        
+        window?.styleMask = [.titled, .closable, .resizable, .fullSizeContentView]
+        window?.isMovableByWindowBackground = true
     }
 
     /// The view with the tab design.
